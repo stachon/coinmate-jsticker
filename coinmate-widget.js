@@ -70,22 +70,19 @@ function localizedString(key) {
 }
 
 function formatWidget(data, currencyName) {
-  var widget = "<big><big>Bitcoin (BTC) <b>" + data.last + "</b> " + currencyName + "<br></big></big>" +
-  "<small><font color='#009900'><b>&#9650;</b> + 3.32 " + currencyName + " (+0.15 %)</font></small><br><br>" +
-  "  </font>" +
-  "  <blockquote>" +
-  "    <blockquote>" +
-         localizedString("Buy at") + "</font><br>" +
-  "      <div id='coinmate-ask-price'>" + data.ask + " " + currencyName + "</div><br>" +
-  "    </blockquote>" +
-  "  </blockquote>" +
-  "  <blockquote>" +
-  "    <blockquote>" +
+  var widget = "<div class='coinmate-widget-inner'>" +
+  "<p class='coinmate-widget-header'>Bitcoin (BTC) <b>" + data.last + "</b> " + currencyName + "</p>" +
+  //"<font color='#009900'><b>&#9650;</b> + 3.32 " + currencyName + " (+0.15 %)" +
+  "  <p class='coinmate-widget-price'>" +
+         localizedString("Buy at") + "<br>" +
+  "      <span id='coinmate-ask-price'>" + data.ask + " " + currencyName + "</span>" +
+  "  </p>" +
+  "  <p class='coinmate-widget-price'>" +
          localizedString("Sell at") + "<br>" +
-  "      <div id='coinmate-bid-price'>" + data.bid + " " + currencyName + "</div><br>" +
-  "    </blockquote>" +
-  "  </blockquote>" +
-  "  <small><small>" + localizedString("Exchange data provided by") + " <a href='https://coinmate.io'>coinmate.io</a><br><br></small></small>";
+  "      <span id='coinmate-bid-price'>" + data.bid + " " + currencyName + "</span>" +
+  "  </p>" +
+  "  <p class='coinmate-widget-footer'>" + localizedString("Exchange data provided by") + " <a href='https://coinmate.io'>coinmate.io</a></p>" +
+  "</div>";
   jQuery('#coinmate-widget').html(widget);
 }
 
